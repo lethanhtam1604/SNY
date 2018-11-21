@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseVC" customModule="SNY" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanh Tam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQL-WE-8tu">
+                    <rect key="frame" x="30" y="50" width="220" height="21"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Chanh Cuc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2m-dY-uhr">
+                    <rect key="frame" x="280" y="50" width="85" height="21"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsN-La-DAZ">
+                    <rect key="frame" x="87.5" y="247" width="200" height="400"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gKc-DS-OC1">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                            <color key="backgroundColor" red="1" green="0.034509672450000001" blue="0.02379427143" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </view>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WTj-wh-10y">
+                            <rect key="frame" x="0.0" y="100" width="200" height="300"/>
+                            <color key="backgroundColor" red="0.4858490037" green="0.91737502810000005" blue="0.2356702209" alpha="0.97891695209999996" colorSpace="custom" customColorSpace="displayP3"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="GIF-e7-8oA"/>
+                        <constraint firstAttribute="height" constant="400" id="IkA-VI-hFI"/>
+                        <constraint firstItem="WTj-wh-10y" firstAttribute="top" secondItem="gKc-DS-OC1" secondAttribute="bottom" id="ZMG-4T-E4v"/>
+                        <constraint firstItem="gKc-DS-OC1" firstAttribute="leading" secondItem="BsN-La-DAZ" secondAttribute="leading" id="kmk-lC-MJs"/>
+                        <constraint firstItem="WTj-wh-10y" firstAttribute="leading" secondItem="BsN-La-DAZ" secondAttribute="leading" id="n1Y-Ie-cyL"/>
+                        <constraint firstItem="gKc-DS-OC1" firstAttribute="top" secondItem="BsN-La-DAZ" secondAttribute="top" id="oyt-cF-S4a"/>
+                        <constraint firstAttribute="bottom" secondItem="WTj-wh-10y" secondAttribute="bottom" id="sKn-wt-Nhu"/>
+                        <constraint firstAttribute="trailing" secondItem="gKc-DS-OC1" secondAttribute="trailing" id="vOd-US-evw"/>
+                        <constraint firstAttribute="trailing" secondItem="WTj-wh-10y" secondAttribute="trailing" id="ySa-Vj-zmr"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.90196078430000004" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="oQL-WE-8tu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="1x7-fP-Icm"/>
+                <constraint firstItem="oQL-WE-8tu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="HW4-Yc-EgA"/>
+                <constraint firstAttribute="bottom" secondItem="BsN-La-DAZ" secondAttribute="bottom" constant="20" id="NkP-wH-8ay"/>
+                <constraint firstItem="P2m-dY-uhr" firstAttribute="leading" secondItem="oQL-WE-8tu" secondAttribute="trailing" constant="30" id="Pjw-uz-iy1"/>
+                <constraint firstItem="BsN-La-DAZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Sqg-Yx-nMz"/>
+                <constraint firstItem="P2m-dY-uhr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="dPA-qs-wFt"/>
+                <constraint firstAttribute="trailing" secondItem="P2m-dY-uhr" secondAttribute="trailing" constant="10" id="fRA-s3-kZl"/>
+            </constraints>
+            <point key="canvasLocation" x="138.40000000000001" y="153.37331334332833"/>
+        </view>
+    </objects>
+</document>

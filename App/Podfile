@@ -4,7 +4,9 @@
 use_frameworks!
 
 def generic_pods
-    
+    pod 'Alamofire', '~> 4.4' #Networking Library
+    pod 'AlamofireImage'
+    pod 'SkeletonView'
 end
 
 target 'SNY' do
