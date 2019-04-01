@@ -51,7 +51,7 @@ extension AppRouter {
         case .mainController:
             
             // Get from XIB
-            let controller = UINavigationController(rootViewController: NewFeedVC())
+            let controller = UINavigationController(rootViewController: MessageVC())
             
             return controller
             

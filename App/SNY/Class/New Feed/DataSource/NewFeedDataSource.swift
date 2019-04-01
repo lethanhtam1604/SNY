@@ -41,10 +41,10 @@ extension NewFeedDataSource: UITableViewDataSource {
             cell.bindingData(newFeedViewModel: item) {
                 if !item.isReload() {
                     item.setReload(true)
-                    UIView.performWithoutAnimation {
-                        tableView.beginUpdates()
-                        tableView.endUpdates()
-                    }
+//                    UIView.performWithoutAnimation {
+//                        tableView.beginUpdates()
+//                        tableView.endUpdates()
+//                    }
 //                    tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .right)
                 }
             }

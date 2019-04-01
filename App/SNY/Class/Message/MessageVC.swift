@@ -26,6 +26,7 @@ class MessageVC: BaseVC {
         initCommon()
         setupTableView()
         setupData()
+        serialQueue()
     }
     
     // MARK: - safeAreaValueDidChange
@@ -163,14 +164,14 @@ extension MessageVC {
             for i in 10..<20 {
                 print("🔷", i)
             }
-            DispatchQueue.main.sync {
+//            DispatchQueue.main.sync {
                 //self.tableView.reloadData()
-            }
+//            }
         }
         // Main thread
-        //        for i in 20..<30 {
-        //            print("⚪️", i)
-        //        }
+//                for i in 20..<30 {
+//                    print("⚪️", i)
+//                }
     }
     
     private func concurrentQueue() {
@@ -190,7 +191,7 @@ extension MessageVC {
 //        }
         
         
-        let globalQueue = DispatchQueue.global()
+        let globalQueue = DispatchQueue.global(qos: .userInteractive)
         globalQueue.async {
             for i in 0..<10 {
                 print("🔷", i)
