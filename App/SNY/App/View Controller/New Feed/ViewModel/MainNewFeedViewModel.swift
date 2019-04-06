@@ -26,7 +26,7 @@ class MainNewFeedViewModel: MainNewFeedViewModelProtocol {
     func setupNewFeedViewModels() {
         
         // Creating new feed view models
-        newFeedViewModels = NewFeedService.shared().getNewFeeds().map { (model) -> NewFeedViewModel in
+        newFeedViewModels = NewFeedHelper.shared().getNewFeeds().map { (model) -> NewFeedViewModel in
             let newFeedViewModel = NewFeedViewModel(newFeed: model)
             return newFeedViewModel
         }

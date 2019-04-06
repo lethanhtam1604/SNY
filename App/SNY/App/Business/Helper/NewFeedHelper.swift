@@ -1,5 +1,5 @@
 //
-//  NewFeedService.swift
+//  NewFeedHelper.swift
 //  SNY
 //
 //  Created by Thanh-Tam Le on 15/11/2018.
@@ -9,20 +9,20 @@
 import UIKit
 
 /// MARK: - NewFeedService Class
-class NewFeedService {
+class NewFeedHelper {
     
     // MARK: - Variables
     private var newFeeds: [NewFeed] = []
-    private static var instance: NewFeedService!
+    private static var instance: NewFeedHelper!
     
     // MARK: - Initialization
     private init() {
         setupData()
     }
     
-    static func shared() -> NewFeedService {
+    static func shared() -> NewFeedHelper {
         if instance == nil {
-            return NewFeedService()
+            return NewFeedHelper()
         }
         return instance
     }
