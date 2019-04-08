@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,10 +21,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fLg-DH-s7W">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fLg-DH-s7W">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rec-purple" translatesAutoresizingMaskIntoConstraints="NO" id="FP7-vZ-oDs">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_heart" translatesAutoresizingMaskIntoConstraints="NO" id="cuE-Hq-gj7">
                     <rect key="frame" x="330" y="592" width="25" height="25"/>
                     <constraints>
@@ -35,17 +38,22 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="FP7-vZ-oDs" secondAttribute="trailing" id="1Qf-IT-HaX"/>
                 <constraint firstAttribute="trailing" secondItem="fLg-DH-s7W" secondAttribute="trailing" id="4UM-92-XcS"/>
+                <constraint firstItem="FP7-vZ-oDs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9nD-pQ-Ddk"/>
                 <constraint firstAttribute="trailing" secondItem="cuE-Hq-gj7" secondAttribute="trailing" constant="20" id="FbO-wo-cgK"/>
+                <constraint firstItem="FP7-vZ-oDs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="H3V-OR-d1o"/>
                 <constraint firstItem="fLg-DH-s7W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JvS-jS-LRN"/>
                 <constraint firstItem="fLg-DH-s7W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QBU-8F-ZlP"/>
                 <constraint firstAttribute="bottom" secondItem="fLg-DH-s7W" secondAttribute="bottom" id="eSq-hv-9KO"/>
+                <constraint firstAttribute="bottom" secondItem="FP7-vZ-oDs" secondAttribute="bottom" id="k3Q-VC-dfe"/>
                 <constraint firstAttribute="bottom" secondItem="cuE-Hq-gj7" secondAttribute="bottom" constant="50" id="zEz-6i-hZt"/>
             </constraints>
             <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
         </view>
     </objects>
     <resources>
-        <image name="ic_heart" width="64" height="64"/>
+        <image name="ic_heart" width="64.5" height="64.5"/>
+        <image name="rec-purple" width="400" height="834"/>
     </resources>
 </document>

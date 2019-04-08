@@ -52,7 +52,7 @@ class MessageVC: BaseVC {
 extension MessageVC {
     
     private func initCommon() {
-        title = "Messages"
+//        title = "Messages"
         
         heartImgView.isUserInteractionEnabled = true
         heartImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(actionTapToHeartImageView)))
@@ -63,7 +63,7 @@ extension MessageVC {
         tableView.dataSource = messageDataSource
         tableView.delegate = messageDataSource
         tableView.tableFooterView = UIView()
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .clear
         tableView.register(UINib(nibName: MessageLeftCell.identifier, bundle: nil), forCellReuseIdentifier: MessageLeftCell.identifier)
         tableView.register(UINib(nibName: MessageRightCell.identifier, bundle: nil), forCellReuseIdentifier: MessageRightCell.identifier)
         tableView.estimatedRowHeight = 100
