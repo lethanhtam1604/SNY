@@ -139,8 +139,8 @@ print(flattenedArray) /// outputs: [ 2, 2, 4, 4, 6, 6 ]
 
 /// Compare between Map and Flatmap
 /// Map and Flatmap have behave similarly:
-let numbers: [Int] = [1, 2, 3]
-let numbersMap = numbers.map { return $0 }
+let numbers: [String] = ["8", "+", "9"]
+let numbersMap = numbers.compactMap { return Int($0) }
 print(numbersMap) /// [1, 2, 3]
 let numbersFlatMap = numbers.compactMap { return $0 }
 print(numbersFlatMap) /// [1, 2, 3]
@@ -241,8 +241,14 @@ Direction.allCases
 
 
 enum Tam: String {
-    case tam1
-    case tam2
+    
+    /// Enum cannot be stored property
+    private var concucdien: String {
+        return "tam"
+    }
+    
+    case tam1 = "tam"
+    case tam2 = "tam3"
     mutating func next(tam: Tam) {
         switch tam {
         case .tam1:
@@ -254,13 +260,33 @@ enum Tam: String {
         }
     }
 }
-let tam: String = Tam.tam1.rawValue
-print(tam)
 
+extension Tam {
+    
+    func lethanhtam() {
+        
+    }
+}
+
+var tam: Tam = Tam.tam1
+tam = Tam.tam2
+print(tam.rawValue)
+
+var thing = "cars"
+print("con cac")
+let closuse = {
+    print(thing)
+}
+closuse()
+thing = "tam love cuc"
 
 struct PersonTam {
     var age: Int
     var name: String
+}
+
+extension PersonTam {
+    
 }
 
 let people = [PersonTam(age: 21, name: "Osame"), PersonTam(age: 17, name: "Masoud"), PersonTam(age: 20, name: "Mehdi")]
@@ -400,6 +426,106 @@ func isValid(s: String) -> String {
     
     return "YES"
 }
+
+// Complete the sherlockAndAnagrams function below.
+func sherlockAndAnagrams(s: String) -> Int {
+    let length = s.count
+    var dic: [[Int]: Int] = [:]
+    for i in 0..<length {
+        var array: [Int] = Array(repeating: 0, count: 26)
+        for j in i..<length {
+            let startIndex = s.index(s.startIndex, offsetBy: j)
+            let c = s[startIndex]
+            let index = Int((c.unicodeScalars.first?.value ?? 0) - (Character("a").unicodeScalars.first?.value ?? 0))
+            array[index] += 1
+            if let value = dic[array] {
+                dic[array] = value + 1
+            } else {
+                dic[array] = 1
+            }
+        }
+    }
+    var res = 0
+    dic.forEach { (key, value) in
+        res += value * (value - 1) / 2
+    }
+    return res
+}
+print(sherlockAndAnagrams(s: "kkkk"))
+
+// Complete the countTriplets function below.
+func countTriplets(arr: [Int], r: Int) -> Int {
+    
+    return 0
+}
+print(countTriplets(arr: [1, 5, 5, 25, 125], r: 5))
+
+
+func addNewFrequency(_ queryDic: inout [Int: Int], _ newFrequency: Int) {
+    if let value = queryDic[newFrequency] {
+        queryDic[newFrequency] = value + 1
+    } else {
+        queryDic[newFrequency] = 1
+    }
+}
+
+func removeFrequency(_ queryDic: inout [Int: Int], _ frequency: Int) {
+    if let value = queryDic[frequency], value > 0 {
+        queryDic[frequency] = value - 1
+    }
+}
+
+func addNewQuery(_ dic: inout [Int: Int], _ newFrequency: inout Int, _ value: Int) {
+    if let value1 = dic[value] {
+        newFrequency = value1 + 1
+        dic[value] = newFrequency
+    } else {
+        dic[value] = newFrequency
+    }
+}
+
+func removeQuery(_ dic: inout [Int: Int], _ frequency: inout Int, _ value: Int) -> Bool {
+    if let value1 = dic[value], value1 > 0 {
+        frequency = value1 - 1
+        dic[value] = frequency
+        return true
+    }
+    return false
+}
+
+func freqQuery(queries: [[Int]]) -> [Int] {
+
+    var res: [Int]             = []
+    var dic: [Int: Int]        = [:]
+    var queryDic: [Int: Int]   = [:]
+    for array in queries {
+        if array[0] == 1 {
+            var newFrequency = 1
+            if let value1 = dic[array[1]] {
+                removeFrequency(&queryDic, value1)
+            }
+            addNewQuery(&dic, &newFrequency, array[1])
+            addNewFrequency(&queryDic, newFrequency)
+        } else if array[0] == 2 {
+            var newFrequency = 0
+            if let value = dic[array[1]], value > 0 {
+                removeFrequency(&queryDic, value)
+                if removeQuery(&dic, &newFrequency, array[1]) {
+                    addNewFrequency(&queryDic, newFrequency)
+                }
+            }
+        } else {
+            if let value = queryDic[array[1]], value > 0 {
+                res.append(1)
+            } else {
+                res.append(0)
+            }
+        }
+    }
+    return res
+}
+
+freqQuery(queries: [[1, 3], [1, 3]])
 
 ///--------------------------------------Hackerrank--------------------------------------------------------------
 ///--------------------------------------Hackerrank--------------------------------------------------------------
@@ -856,3 +982,69 @@ print("%lld\n", (l*(l+1)/2)-c)
 ///----------------------DBS-Coding-Challenges-------------------------------
 ///----------------------DBS-Coding-Challenges-------------------------------
 ///----------------------DBS-Coding-Challenges-------------------------------
+
+///----------------------GRAB-Coding-Challenges-------------------------------
+///----------------------GRAB-Coding-Challenges-------------------------------
+///----------------------GRAB-Coding-Challenges-------------------------------
+
+/// 5, 2th -> 1
+/// 5 --> 101 --> 001 ->
+func turnOn(n: Int, k: Int) -> Int {
+    var d = n
+    var index = 0
+    while d > 0 {
+        let t = d % 2
+        if index == k {
+            if t == 1 {
+                return n - NSDecimalNumber(decimal: pow(2, k)).intValue
+            } else {
+                return n + NSDecimalNumber(decimal: pow(2, k)).intValue
+            }
+        }
+        index += 1
+        d = d / 2
+    }
+    return 0
+}
+print(turnOn(n: 5, k: 2))
+
+func twoTimesAppearInThreeArrays(_ array1: [Int], _ array2: [Int], _ array3: [Int]) -> [Int] {
+    var res: Set<Int> = Set()
+    let set1 = Set.init(array1)
+    let set2 = Set.init(array2)
+    let set3 = Set.init(array3)
+    var array: [Int] = Array(set1)
+    array.append(contentsOf: set2)
+    array.append(contentsOf: set3)
+    var countedS = NSCountedSet.init(array: array)
+    for item in array {
+        if countedS.count(for: item) == 2 {
+            res.insert(item)
+        }
+    }
+    return res.map({ (item) -> Int in
+        return item
+    })
+}
+twoTimesAppearInThreeArrays([1, 2, 3, 4, 5], [10, 11, 8], [1, 1, 6, 4, 5, 3, 11])
+
+
+/// tam,""string", tam", ta
+/// tam,""string", tam", "ta"
+/// [tam, string, tam, ta]
+///
+func hasToken(s: String) -> [String] {
+    var res: [String] = []
+    var newString = ""
+    var hasQuote = false
+    for c in s {
+        if c == "\"" {
+            hasQuote = true
+        }
+    }
+    return res
+}
+
+///----------------------GRAB-Coding-Challenges-------------------------------
+///----------------------GRAB-Coding-Challenges-------------------------------
+///----------------------GRAB-Coding-Challenges-------------------------------

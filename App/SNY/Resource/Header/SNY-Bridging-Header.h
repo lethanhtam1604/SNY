@@ -9,6 +9,7 @@
 #ifndef SNY_Bridging_Header_h
 #define SNY_Bridging_Header_h
 
-#define BASEURL @"https://httpbin.org/"
+#define BASEURL @"https://api.nytimes.com/svc/mostpopular/v2/"
+#define KEY @"KeDIzl53E5wBb1oDPxsDVRuf9PeZCG0h"
 
 #endif /* SNY_Bridging_Header_h */

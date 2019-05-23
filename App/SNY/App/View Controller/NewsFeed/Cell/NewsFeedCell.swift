@@ -27,18 +27,15 @@ class NewsFeedCell: UITableViewCell {
             let photoViewModel = newsFeedViewModel?.getPhotoViewModel()
             thumbnailImgView.loadImagesUsingUrlString(urlString: newsFeedViewModel?.getThumbnailURL() ?? "") {
                 self.photoImgView.loadImagesUsingUrlString(urlString: photoViewModel?.getImageURL() ?? "") {
-                    //DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                        self.hideSkeletonAnimation()
-                        let imageRatio  = photoViewModel?.getRatio() ?? 1
-                        let imageWidth  = Double(SCREEN_WIDTH)
-                        let imageHeight = imageWidth / imageRatio
-                        self.heightPhotoImgViewConstraint.constant = CGFloat(imageHeight)
-                        self.photoImgView.isHidden = false
-                        self.titleLabel.text       = self.newsFeedViewModel?.getTitle()
-                        self.dateTimeLabel.text    = self.newsFeedViewModel?.getDateTime()
-                        self.detailTV.text         = self.newsFeedViewModel?.getDetail()
-                    //})
-                    //self.newsFeedViewModel?.reloadContent()
+                    self.hideSkeletonAnimation()
+                    let imageRatio  = photoViewModel?.getRatio() ?? 1
+                    let imageWidth  = Double(SCREEN_WIDTH)
+                    let imageHeight = imageWidth / imageRatio
+                    self.heightPhotoImgViewConstraint.constant = CGFloat(imageHeight)
+                    self.photoImgView.isHidden = false
+                    self.titleLabel.text       = self.newsFeedViewModel?.getTitle()
+                    self.dateTimeLabel.text    = self.newsFeedViewModel?.getDateTime()
+                    self.detailTV.text         = self.newsFeedViewModel?.getDetail()
                 }
             }
         }

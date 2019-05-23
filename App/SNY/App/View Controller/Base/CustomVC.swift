@@ -9,6 +9,12 @@
 import UIKit
 
 class CustomVC: UIViewController {
+    
+    deinit {
+        print("\n\n**********************\n")
+        print("all resources removed for \((self.nibName ?? self.description))")
+        print("\n**************************\n\n")
+    }
 
     /// Recommend that overriding #safeAreaValueDidChange function before getting this value
     var topSafeArea: CGFloat = 0

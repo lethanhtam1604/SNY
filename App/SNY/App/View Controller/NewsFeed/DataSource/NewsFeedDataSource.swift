@@ -38,11 +38,6 @@ extension NewsFeedDataSource: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCell.identifier, for: indexPath) as? NewsFeedCell {
             cell.selectionStyle    = .none
             let item               = mainNewsFeedViewModel.getNewsFeedViewModel(indexPath.row)
-            item.updatingContentHeight = {
-                tableView.beginUpdates()
-                tableView.reloadRows(at: [indexPath], with: .fade)
-                tableView.endUpdates()
-            }
             cell.newsFeedViewModel = item
             return cell
         }

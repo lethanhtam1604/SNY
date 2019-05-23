@@ -13,6 +13,10 @@ class LandingVC: UITabBarController {
     // Mark: - Variable
     private var newsFeedVC : NewsFeedVC!
     private var messageVC  : MessageVC!
+    private var temp1VC    : MessageVC!
+    private var temp2VC    : MessageVC!
+    private var temp3VC    : MessageVC!
+
     private var previousTag = 1
     
     // Mark: - View Cycle
@@ -39,18 +43,17 @@ class LandingVC: UITabBarController {
 extension LandingVC {
     
     private func initCommon() {
-        title = "messages".uppercased()
         view.tintColor = #colorLiteral(red: 0.5137254902, green: 0.368627451, blue: 0.9764705882, alpha: 1)
         view.backgroundColor = .white
      
         tabBar.shadowImage                = UIImage()
-        tabBar.barTintColor               = UIColor.white
+        tabBar.barTintColor               = AppTheme.tabBarBackgroundColor
         tabBar.backgroundImage            = UIImage()
         
-        tabBar.layer.shadowColor          = UIColor.black.withAlphaComponent(0.3).cgColor
+        tabBar.layer.shadowColor          = AppTheme.viewShadowColor.cgColor
         tabBar.layer.shadowOffset         = CGSize(width: 0, height: 0)
         tabBar.layer.shadowRadius         = 4
-        tabBar.layer.shadowOpacity        = 0.5
+        tabBar.layer.shadowOpacity        = 1
         
         tabBar.isTranslucent              = false
         
@@ -63,21 +66,44 @@ extension LandingVC {
 //        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.5137254902, green: 0.368627451, blue: 0.9764705882, alpha: 1), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)], for: .selected)
         
         // Setup navigation controllers
-        newsFeedVC                = NewsFeedVC()
-        let newsFeedNVC           = UINavigationController(rootViewController : newsFeedVC)
+        newsFeedVC      = NewsFeedVC()
+        let newsFeedNVC = UINavigationController(rootViewController: newsFeedVC)
         
-        messageVC                 = MessageVC()
-        let messageNVC            = UINavigationController(rootViewController : messageVC)
+        messageVC       = MessageVC()
+        let messageNVC  = UINavigationController(rootViewController: messageVC)
+        
+        temp1VC         = MessageVC()
+        let temp1NVC    = UINavigationController(rootViewController: temp1VC)
+
+        temp2VC         = MessageVC()
+        let temp2NVC    = UINavigationController(rootViewController: temp2VC)
+
+        temp3VC         = MessageVC()
+        let temp3NVC    = UINavigationController(rootViewController: temp3VC)
+
       
         // Add these navigation controllers into tabbar
-        viewControllers           = [newsFeedNVC, messageNVC]
+        viewControllers                   = [newsFeedNVC, messageNVC, temp1NVC, temp2NVC, temp3NVC]
         
-        newsFeedVC.tabBarItem     = UITabBarItem(title: "Tam", image: #imageLiteral(resourceName: "ic_ex_light"), selectedImage: #imageLiteral(resourceName: "ic_ex"))
-        newsFeedVC.tabBarItem.tag = 1
-        
-        messageVC.tabBarItem      = UITabBarItem(title: "Le", image: #imageLiteral(resourceName: "plus-icon"), selectedImage: #imageLiteral(resourceName: "plus-icon"))
-        messageVC.tabBarItem.tag  = 2
+        newsFeedVC.tabBarItem             = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_ex_light"), selectedImage: #imageLiteral(resourceName: "ic_ex"))
+        newsFeedVC.tabBarItem.tag         = 1
+        newsFeedVC.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+
+        messageVC.tabBarItem              = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_map_light"), selectedImage: #imageLiteral(resourceName: "ic_map"))
+        messageVC.tabBarItem.tag          = 2
+        messageVC.tabBarItem.imageInsets  = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
     
+        temp1VC.tabBarItem                = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_map_light"), selectedImage: #imageLiteral(resourceName: "ic_map"))
+        temp1VC.tabBarItem.tag            = 3
+        temp1VC.tabBarItem.imageInsets    = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+        
+        temp2VC.tabBarItem                = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_map_light"), selectedImage: #imageLiteral(resourceName: "ic_map"))
+        temp2VC.tabBarItem.tag            = 4
+        temp2VC.tabBarItem.imageInsets    = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+        
+        temp3VC.tabBarItem                = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_map_light"), selectedImage: #imageLiteral(resourceName: "ic_map"))
+        temp3VC.tabBarItem.tag            = 5
+        temp3VC.tabBarItem.imageInsets    = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
     }
 }
 

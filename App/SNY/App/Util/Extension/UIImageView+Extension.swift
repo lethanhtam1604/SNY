@@ -25,7 +25,8 @@ extension UIImageView {
             return
         }
         image = placeholderImage
-        APIWrapper.downloadImageData(urlString: urlString) { (data, error) in
+        
+        ImageWrapper.download(urlString: urlString) { (data, error) in
             if let newData = data, let newImage = UIImage.init(data: newData) {
                 self.image = newImage
                 imageCache.setObject(newImage, forKey: urlString as AnyObject)

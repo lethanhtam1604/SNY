@@ -26,7 +26,7 @@ class MessageVC: BaseVC {
         initCommon()
         setupTableView()
         setupData()
-        serialQueue()
+        concurrentQueue()
     }
     
     // MARK: - safeAreaValueDidChange
@@ -155,53 +155,49 @@ extension MessageVC {
             print("tam")
         }
         let queue = DispatchQueue(label: "queue.1")
-        queue.async {
+        queue.sync {
             for i in 0..<10 {
                 print("🔷", i)
             }
         }
-        queue.async {
+        queue.sync {
             for i in 10..<20 {
                 print("🔷", i)
             }
-//            DispatchQueue.main.sync {
-                //self.tableView.reloadData()
-//            }
         }
         // Main thread
-//                for i in 20..<30 {
-//                    print("⚪️", i)
-//                }
+        for i in 20..<30 {
+            print("⚪️", i)
+        }
     }
     
     private func concurrentQueue() {
         defer {
             print("tam")
         }
-//        let queue = DispatchQueue(label: "concurrentQueue", qos: .userInitiated, attributes: .concurrent)
-//        queue.sync {
-//            for i in 0..<10 {
-//                print("🔷", i)
-//            }
-//        }
-//        queue.sync {
-//            for i in 20..<30 {
-//                print("🔷", i)
-//            }
-//        }
-        
-        
-        let globalQueue = DispatchQueue.global(qos: .userInteractive)
-        globalQueue.async {
+        let queue = DispatchQueue(label: "concurrentQueue", qos: .userInitiated, attributes: .concurrent)
+        queue.async {
             for i in 0..<10 {
                 print("🔷", i)
             }
         }
-        globalQueue.async {
-            for i in 10..<20 {
+        queue.async {
+            for i in 20..<30 {
                 print("🔷", i)
             }
         }
+        
+//        let globalQueue = DispatchQueue.global(qos: .userInteractive)
+//        globalQueue.async {
+//            for i in 0..<10 {
+//                print("🔷", i)
+//            }
+//        }
+//        globalQueue.async {
+//            for i in 10..<20 {
+//                print("🔷", i)
+//            }
+//        }
         
         // Main thread
 //        for i in 30..<40 {
